@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://json.schemastore.org/spring-boot-properties.json
+Spring:
+  application:
+    name: HR
+  datasource:
+    url: jdbc:snowflake://${SNOWFLAKE_ACCOUNT_IDENTIFIER}.snowflakecomputing.com
+    username: ${SNOWFLAKE_USERNAME}
+    password: ${SNOWFLAKE_PASSWORD}
+    driver-class-name: net.snowflake.client.api.driver.SnowflakeDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
