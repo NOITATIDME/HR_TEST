@@ -1,14 +1,32 @@
 ## yaml-language-server: $schema=https://json.schemastore.org/spring-boot-properties.json
+  # security:
+  #   oauth2:
+  #     client:
+  #       registration:
+  #         google:
+  #           provider: google
+  #           client-id: ${GOOGLE_CLIENT_ID}
+  #           client-secret: ${GOOGLE_CLIENT_SECRET}
+  #           authorization-grant-type: authorization_code
+  #           redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+  #           scope:
+  #             - openid
+  #             - profile
+  #             - email
+  #       provider:
+  #         google:
+  #           issuer-uri: https://accounts.google.com
 spring:
-  security:
   datasource:
-    url: jdbc:snowflake://ROEVMLM-VY16593.snowflakecomputing.com/?authenticator=snowflake_jwt
-    username: ${SNOWFLAKE_USERNAME}
-    driver-class-name: net.snowflake.client.api.driver.SnowflakeDriver
-    hikari:
-      data-source-properties:
-        private_key_file: ${SNOWFLAKE_PRIVATE_KEY_FILE}
-        private_key_pwd: ${SNOWFLAKE_PRIVATE_KEY_PASSWORD}
+    snowflake:
+      enabled: true
+      hikari:
+        jdbc-url: jdbc:snowflake://ROEVMLM-VY16593.snowflakecomputing.com/?authenticator=snowflake_jwt
+        username: ${SNOWFLAKE_USERNAME}
+        driver-class-name: net.snowflake.client.api.driver.SnowflakeDriver
+        data-source-properties:
+          private_key_file: ${SNOWFLAKE_PRIVATE_KEY_FILE}
+          private_key_pwd: ${SNOWFLAKE_PRIVATE_KEY_PASSWORD}
   
 server:
   port: 8081

@@ -22,8 +22,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    runtimeOnly 'net.snowflake:snowflake-jdbc:4.3.3'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.1.0'
+    implementation 'net.snowflake:snowflake-jdbc:4.3.3'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:4.1.0'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 

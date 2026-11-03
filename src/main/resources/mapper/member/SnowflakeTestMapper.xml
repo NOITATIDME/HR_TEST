@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonik.hr.domain.member.mapper.SnowflakeTestMapper">
+
+  <select id="getCurrentUserInfo" resultType="map">
+    SELECT EMP_NM, DEPT_NM
+    FROM COMMON_DB.COMMON.TCM_EMP_M
+  </select>
+
+</mapper>
