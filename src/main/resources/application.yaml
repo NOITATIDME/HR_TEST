@@ -1,13 +1,14 @@
-# yaml-language-server: $schema=https://json.schemastore.org/spring-boot-properties.json
-Spring:
-  application:
-    name: HR
+## yaml-language-server: $schema=https://json.schemastore.org/spring-boot-properties.json
+spring:
+  security:
   datasource:
-    url: jdbc:snowflake://${SNOWFLAKE_ACCOUNT_IDENTIFIER}.snowflakecomputing.com
+    url: jdbc:snowflake://ROEVMLM-VY16593.snowflakecomputing.com/?authenticator=snowflake_jwt
     username: ${SNOWFLAKE_USERNAME}
-    password: ${SNOWFLAKE_PASSWORD}
     driver-class-name: net.snowflake.client.api.driver.SnowflakeDriver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+    hikari:
+      data-source-properties:
+        private_key_file: ${SNOWFLAKE_PRIVATE_KEY_FILE}
+        private_key_pwd: ${SNOWFLAKE_PRIVATE_KEY_PASSWORD}
+  
+server:
+  port: 8081

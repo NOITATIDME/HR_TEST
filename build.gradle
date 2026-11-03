@@ -29,4 +29,5 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	jvmArgs '--add-opens=java.base/java.nio=ALL-UNNAMED'
 }
